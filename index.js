@@ -34,6 +34,9 @@ function voteForCandidate() {
 		var account = prompt("Please enter your registered number");
 		$("#ID").html("Your Account ID: "+web3.eth.accounts[account]);
 		$("#bal").html("Balance: "+web3.eth.getBalance(web3.eth.accounts[account])/Math.pow(10,18));
+		
+		$("#Uniquedata").html("Your Details are ID: "+web3.eth.accounts[account]+" Balance "+ web3.eth.getBalance(web3.eth.accounts[account])/Math.pow(10,18));
+		
 		var e = document.getElementById("candidate").value;
 		var candidateName = e;	
 
@@ -82,6 +85,7 @@ function winner(){
 		if(max<votes){
 			candidateW = contractInstance.candidates(i)[1].toString();
 			max = votes
+		alert("The new max votes is "+max);	
 		}
 	}
 	//alert(max + " "+ candidateW);
